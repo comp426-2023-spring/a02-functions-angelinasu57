@@ -4,9 +4,8 @@ import fetch from 'node-fetch';
 import moment from 'moment-timezone';
 
 let timezone = moment.tz.guess();
-let latitude = null;
-let longitude = null;
-let time = null;
+let latitude;
+let longitude;
 
 const args = minimist(process.argv.slice(2)); // ref to array and starting from the second one 
 
@@ -22,19 +21,19 @@ if (args.h) {
 }
 
 if (args.z) {
-	timezone = args.z
+	timezone = args.z;
 }
 
 if (args.n) {
 	latitude = args.n
 } else if (args.s) {
-	latitude = -args.s
+	latitude = -args.s;
 }
 
 if (args.e) {
-	longitude = args.e
+	longitude = args.e;
 } else if (args.w) {
-	longitude = -args.w
+	longitude = -args.w;
 }
 
 // for (let i = 2; i < process.argv.length; i++) {
@@ -121,7 +120,7 @@ if (args.e) {
 
 //data collection ends
 
-const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=' + latitude + '&longitude=' + longitude + '&daily=precipitation_hours&current_weather=true&temperature_unit=fahrenheit&timezone=' + timezone) // url from the website
+const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=' + latitude + '&longitude=' + longitude + '&daily=precipitation_hours&current_weather=true&temperature_unit=fahrenheit&timezone=' + timezone); // url from the website
 const data = await response.json();
 
 if (args.j) {
