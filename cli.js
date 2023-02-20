@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 import minimist from 'minimist';
 import fetch from 'node-fetch';
 import moment from 'moment-timezone';
@@ -21,21 +22,22 @@ if (args.h) {
 }
 
 if (args.z) {
-	timezone = args.z;
+	timezone = args.z
 }
 
 if (args.n) {
 	latitude = args.n
 } else if (args.s) {
-	latitude = -args.s;
+	latitude = -args.s
 }
 
 if (args.e) {
-	longitude = args.e;
+	longitude = args.e
 } else if (args.w) {
-	longitude = -args.w;
+	longitude = -args.w
 }
 
+// dumbass for loop
 // for (let i = 2; i < process.argv.length; i++) {
 //     if (process.argv[i] == '-h') { // accounting for the fact that the first one is the path to nodejs
 //         console.log(`Usage: galosh.js [options] -[n|s] LATITUDE -[e|w] LONGITUDE -z TIME_ZONE
@@ -157,4 +159,4 @@ if (days == 0) { // aka today
 }
 
 
-process.exit(1);
+// process.exit(1);
